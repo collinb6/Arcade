@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>138-in-1 Multicart Dipswitch Mod Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #555;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 11px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .code {
+            font-family: 'Courier New', monospace;
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        ul {
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>138-in-1 Multicart Dipswitch Mod Summary</h1>
+    <p><strong>Source:</strong> Neo-Geo Forums - Tech Support<br>
+    <strong>Thread:</strong> "The Super 138 in 1 without the sub-pcb: using a dipswitch. Game list with binary code."<br>
+    <strong>Date:</strong> June 2012 - December 2013</p>
+
+    <h2>Overview</h2>
+    <p>The 138-in-1 multicart originally requires a sub-PCB to function, which handles the game selection menu. This modification allows the cartridge to be used without the sub-PCB by using a dipswitch to manually select games via binary codes.</p>
+
+    <div class="info">
+        <strong>Key Advantage:</strong> The 138-in-1 contains 22 games that are NOT available on the 161-in-1 multicart, making it a valuable companion cartridge.
+    </div>
+
+    <h2>Games Exclusive to 138-in-1 (Not on 161-in-1)</h2>
+    <ul>
+        <li>Art of Fighting 3</li>
+        <li>Cyber-Lip</li>
+        <li>Ghost Pilots</li>
+        <li>Ghostlop</li>
+        <li>Goal! Goal! Goal!</li>
+        <li>Kabuki Klash</li>
+        <li>League Bowling</li>
+        <li>Metal Slug 5</li>
+        <li>Nam-1975</li>
+        <li>Ninja Combat</li>
+        <li>Ninja Master's</li>
+        <li>Pop'n Bounce</li>
+        <li>Power Spikes II</li>
+        <li>Puzzled Joy Joy Kid</li>
+        <li>Sengoku 2</li>
+        <li>Shock Troopers</li>
+        <li>Super Sidekicks</li>
+        <li>Tecmo World 96</li>
+        <li>Twinkle Star Sprites</li>
+        <li>Waku Waku 7</li>
+        <li>World Heroes Jet</li>
+        <li>World Heroes Perfect</li>
+    </ul>
+
+    <h2>Important: Dipswitch Logic</h2>
+    <div class="warning">
+        <strong>CRITICAL:</strong> In the dipswitch, <strong>ON = 0</strong> and <strong>OFF = 1</strong>. This is the opposite of what you might expect!
+    </div>
+
+    <h2>Wiring Information</h2>
+    <p>The wires from the sub-PCB connector should be connected as follows (numbered to match selection codes):</p>
+    <table>
+        <tr>
+            <th>Wire Color</th>
+            <th>Function</th>
+            <th>Dipswitch Position</th>
+        </tr>
+        <tr>
+            <td>White</td>
+            <td>Ground</td>
+            <td>Common</td>
+        </tr>
+        <tr>
+            <td>Red</td>
+            <td>Voltage (+5V)</td>
+            <td>Common</td>
+        </tr>
+        <tr>
+            <td>Green</td>
+            <td>Signal 1</td>
+            <td>Position 1</td>
+        </tr>
+        <tr>
+            <td>Yellow</td>
+            <td>Signal 2</td>
+            <td>Position 2</td>
+        </tr>
+        <tr>
+            <td>Brown</td>
+            <td>Signal 3</td>
+            <td>Position 3</td>
+        </tr>
+        <tr>
+            <td>Blue</td>
+            <td>Signal 4</td>
+            <td>Position 4</td>
+        </tr>
+        <tr>
+            <td>Orange</td>
+            <td>Signal 5</td>
+            <td>Position 5</td>
+        </tr>
+        <tr>
+            <td>Black</td>
+            <td>Signal 6</td>
+            <td>Position 6</td>
+        </tr>
+        <tr>
+            <td>Grey</td>
+            <td>Signal 7</td>
+            <td>Position 7</td>
+        </tr>
+        <tr>
+            <td>Purple</td>
+            <td>Signal 8</td>
+            <td>Position 8</td>
+        </tr>
+    </table>
+
+    <h2>Critical Wiring Requirement: SPDT Switches</h2>
+    <div class="warning">
+        <strong>IMPORTANT:</strong> Do NOT use simple ON/OFF switches! The multiplexer chip in the cartridge does NOT like floating inputs and will cause graphical errors and crashes.
+    </div>
+    <p><strong>Solution:</strong> Use <strong>SPDT (Single Pole Double Throw) switches</strong>:</p>
+    <ul>
+        <li><strong>ON position:</strong> Connects signal line to Voltage (+5V)</li>
+        <li><strong>OFF position:</strong> Connects signal line to Ground (NOT left floating)</li>
+    </ul>
+    <p>This ensures that each signal line is always connected to either voltage or ground, never left floating.</p>
+
+    <h2>Complete Game List with Binary Codes</h2>
+    <p>The following table contains all 139 games (0-138) with their binary selection codes. Remember: <span class="code">0 = ON</span> and <span class="code">1 = OFF</span>.</p>
+
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Binary Code</th>
+            <th>Game Name</th>
+        </tr>
+        <tr><td>0</td><td>00000000</td><td>KOF2002 Magic II</td></tr>
+        <tr><td>1</td><td>00000001</td><td>KOF97</td></tr>
+        <tr><td>2</td><td>00000010</td><td>KOF98</td></tr>
+        <tr><td>3</td><td>00000011</td><td>KOF99</td></tr>
+        <tr><td>4</td><td>00000100</td><td>KOF2001</td></tr>
+        <tr><td>5</td><td>00000101</td><td>KOF2002</td></tr>
+        <tr><td>6</td><td>00000110</td><td>KOF2003</td></tr>
+        <tr><td>7</td><td>00000111</td><td>CTHD2003</td></tr>
+        <tr><td>8</td><td>00001000</td><td>KOF2004SE</td></tr>
+        <tr><td>9</td><td>00001001</td><td>KOF2005 Unique II</td></tr>
+        <tr><td>10</td><td>00001010</td><td>King of Gladiator</td></tr>
+        <tr><td>11</td><td>00001011</td><td>KOF2002 Super</td></tr>
+        <tr><td>12</td><td>00001100</td><td>KOF2005 Unique</td></tr>
+        <tr><td>13</td><td>00001101</td><td>SVC Chaos Plus</td></tr>
+        <tr><td>14</td><td>00001110</td><td>Mark of the Wolves</td></tr>
+        <tr><td>15</td><td>00001111</td><td>The Last Blade</td></tr>
+        <tr><td>16</td><td>00010000</td><td>The Last Blade 2</td></tr>
+        <tr><td>17</td><td>00010001</td><td>Samurai V Special</td></tr>
+        <tr><td>18</td><td>00010010</td><td>Takon Matrimelee</td></tr>
+        <tr><td>19</td><td>00010011</td><td>Rage of Dragons</td></tr>
+        <tr><td>20</td><td>00010100</td><td>Double Dragon Plus</td></tr>
+        <tr><td>21</td><td>00010101</td><td>KOF94</td></tr>
+        <tr><td>22</td><td>00010110</td><td>KOF95</td></tr>
+        <tr><td>23</td><td>00010111</td><td>KOF96</td></tr>
+        <tr><td>24</td><td>00011000</td><td>KOF97 Plus</td></tr>
+        <tr><td>25</td><td>00011001</td><td>KOF98 Ultimate Match</td></tr>
+        <tr><td>26</td><td>00011010</td><td>KOF99+</td></tr>
+        <tr><td>27</td><td>00011011</td><td>KOF2001 Plus</td></tr>
+        <tr><td>28</td><td>00011100</td><td>KOF2002 Magic</td></tr>
+        <tr><td>29</td><td>00011101</td><td>CTH2003 Super Plus</td></tr>
+        <tr><td>30</td><td>00011110</td><td>KOF 2004 SE Plus</td></tr>
+        <tr><td>31</td><td>00011111</td><td>KOF2005</td></tr>
+        <tr><td>32</td><td>00100000</td><td>Mark of the Wolves+</td></tr>
+        <tr><td>33</td><td>00100001</td><td>Rage of Dragons Plus</td></tr>
+        <tr><td>34</td><td>00100010</td><td>The Last Blade 2+</td></tr>
+        <tr><td>35</td><td>00100011</td><td>Q Double Dragon</td></tr>
+        <tr><td>36</td><td>00100100</td><td>Breakers Revenge</td></tr>
+        <tr><td>37</td><td>00100101</td><td>Waku Waku 7</td></tr>
+        <tr><td>38</td><td>00100110</td><td>Kabuki Klash</td></tr>
+        <tr><td>39</td><td>00100111</td><td>Karnodv's Revenge</td></tr>
+        <tr><td>40</td><td>00101000</td><td>Ninja Master's</td></tr>
+        <tr><td>41</td><td>00101001</td><td>Samurai Shodown 2</td></tr>
+        <tr><td>42</td><td>00101010</td><td>Samurai Shodown 3</td></tr>
+        <tr><td>43</td><td>00101011</td><td>Samurai Shodown 4</td></tr>
+        <tr><td>44</td><td>00101100</td><td>World Heroes 2</td></tr>
+        <tr><td>45</td><td>00101101</td><td>World Heroes Perfect</td></tr>
+        <tr><td>46</td><td>00101110</td><td>World Heroes Jet</td></tr>
+        <tr><td>47</td><td>00101111</td><td>3 Count Bout</td></tr>
+        <tr><td>48</td><td>00110000</td><td>Breakers</td></tr>
+        <tr><td>49</td><td>00110001</td><td>Double Dragon</td></tr>
+        <tr><td>50</td><td>00110010</td><td>Kabuki Klash</td></tr>
+        <tr><td>51</td><td>00110011</td><td>Art of Fighting 2</td></tr>
+        <tr><td>52</td><td>00110100</td><td>Art of Fighting 3</td></tr>
+        <tr><td>53</td><td>00110101</td><td>Samurai Shodown 2+</td></tr>
+        <tr><td>54</td><td>00110110</td><td>Samurai Shodown 3+</td></tr>
+        <tr><td>55</td><td>00110111</td><td>Samurai Shodown 4+</td></tr>
+        <tr><td>56</td><td>00111000</td><td>KOF95+</td></tr>
+        <tr><td>57</td><td>00111001</td><td>KOF96+</td></tr>
+        <tr><td>58</td><td>00111010</td><td>KOF97 Remix</td></tr>
+        <tr><td>59</td><td>00111011</td><td>KOF2005 Extra Plus</td></tr>
+        <tr><td>60</td><td>00111100</td><td>SNK VS Capcom Remix</td></tr>
+        <tr><td>61</td><td>00111101</td><td>Metal Slug</td></tr>
+        <tr><td>62</td><td>00111110</td><td>Metal Slug 2</td></tr>
+        <tr><td>63</td><td>00111111</td><td>Metal Slug 3</td></tr>
+        <tr><td>64</td><td>01000000</td><td>Metal Slug 4</td></tr>
+        <tr><td>65</td><td>01000001</td><td>Metal Slug 5</td></tr>
+        <tr><td>66</td><td>01000010</td><td>Metal Slug 6</td></tr>
+        <tr><td>67</td><td>01000011</td><td>Shock Troopers</td></tr>
+        <tr><td>68</td><td>01000100</td><td>Shock Troopers 2</td></tr>
+        <tr><td>69</td><td>01000101</td><td>Lansquenet 2004</td></tr>
+        <tr><td>70</td><td>01000110</td><td>Nan-1975</td></tr>
+        <tr><td>71</td><td>01000111</td><td>Spin Master</td></tr>
+        <tr><td>72</td><td>01001000</td><td>Blue's Journey</td></tr>
+        <tr><td>73</td><td>01001001</td><td>Ganryu</td></tr>
+        <tr><td>74</td><td>01001010</td><td>Eight Man</td></tr>
+        <tr><td>75</td><td>01001011</td><td>Ninja Commando</td></tr>
+        <tr><td>76</td><td>01001100</td><td>Robo Army</td></tr>
+        <tr><td>77</td><td>01001101</td><td>Mutation Nation</td></tr>
+        <tr><td>78</td><td>01001110</td><td>Ninja Combat</td></tr>
+        <tr><td>79</td><td>01001111</td><td>Cyber-Lip</td></tr>
+        <tr><td>80</td><td>01010000</td><td>Spin-Master+</td></tr>
+        <tr><td>81</td><td>01010001</td><td>Sengoku3+</td></tr>
+        <tr><td>82</td><td>01010010</td><td>Top Hunter</td></tr>
+        <tr><td>83</td><td>01010011</td><td>Metal Slug+</td></tr>
+        <tr><td>84</td><td>01010100</td><td>Metal Slug 2+</td></tr>
+        <tr><td>85</td><td>01010101</td><td>Metal Slug 3+</td></tr>
+        <tr><td>86</td><td>01010110</td><td>Metal Slug 4 Plus</td></tr>
+        <tr><td>87</td><td>01010111</td><td>Metal Slug 5 Plus</td></tr>
+        <tr><td>88</td><td>01011000</td><td>Metal Slug 6 Plus</td></tr>
+        <tr><td>89</td><td>01011001</td><td>Neo Bomber Man</td></tr>
+        <tr><td>90</td><td>01011010</td><td>Zupapa</td></tr>
+        <tr><td>91</td><td>01011011</td><td>Nightmare</td></tr>
+        <tr><td>92</td><td>01011100</td><td>Sengoku</td></tr>
+        <tr><td>93</td><td>01011101</td><td>Sengoku 2</td></tr>
+        <tr><td>94</td><td>01011110</td><td>Sengoku 3</td></tr>
+        <tr><td>95</td><td>01011111</td><td>Burning Fight</td></tr>
+        <tr><td>96</td><td>01100000</td><td>Strikers 1945 Plus+</td></tr>
+        <tr><td>97</td><td>01100001</td><td>Twinkle Stars Sprites</td></tr>
+        <tr><td>98</td><td>01100010</td><td>Viewpoint</td></tr>
+        <tr><td>99</td><td>01100011</td><td>Ghost Pilots</td></tr>
+        <tr><td>100</td><td>01100100</td><td>Strikers 1945 Plus</td></tr>
+        <tr><td>101</td><td>01100101</td><td>Prehistoric Isle 2</td></tr>
+        <tr><td>102</td><td>01100110</td><td>Blazing Star</td></tr>
+        <tr><td>103</td><td>01100111</td><td>Alpha Mission II</td></tr>
+        <tr><td>104</td><td>01101000</td><td>Last Resort</td></tr>
+        <tr><td>105</td><td>01101001</td><td>Andro Dunos</td></tr>
+        <tr><td>106</td><td>01101010</td><td>Captain Tomaday</td></tr>
+        <tr><td>107</td><td>01101011</td><td>Aero Fighters 2</td></tr>
+        <tr><td>108</td><td>01101100</td><td>Aero Fighters 3</td></tr>
+        <tr><td>109</td><td>01101101</td><td>Zed Blade</td></tr>
+        <tr><td>110</td><td>01101110</td><td>Puzzled Joyjoy Kid</td></tr>
+        <tr><td>111</td><td>01101111</td><td>Puzzle Bobble</td></tr>
+        <tr><td>112</td><td>01110000</td><td>Puzzle Bobble 2</td></tr>
+        <tr><td>113</td><td>01110001</td><td>Puzzle de Pon!</td></tr>
+        <tr><td>114</td><td>01110010</td><td>Puzzle de Pon!+</td></tr>
+        <tr><td>115</td><td>01110011</td><td>Magical Drop II</td></tr>
+        <tr><td>116</td><td>01110100</td><td>Magical Drop III</td></tr>
+        <tr><td>117</td><td>01110101</td><td>Pop'n Bounce</td></tr>
+        <tr><td>118</td><td>01110110</td><td>Panic Bomber</td></tr>
+        <tr><td>119</td><td>01110111</td><td>Money Puzzle Ex</td></tr>
+        <tr><td>120</td><td>01111000</td><td>Ghostlop</td></tr>
+        <tr><td>121</td><td>01111001</td><td>Super Sidekicks</td></tr>
+        <tr><td>122</td><td>01111010</td><td>Super Sidekicks 2</td></tr>
+        <tr><td>123</td><td>01111011</td><td>Super Sidekicks 3</td></tr>
+        <tr><td>124</td><td>01111100</td><td>The Ultimate 11</td></tr>
+        <tr><td>125</td><td>01111101</td><td>NeoGeo Cup'98</td></tr>
+        <tr><td>126</td><td>01111110</td><td>Tecmo World 96</td></tr>
+        <tr><td>127</td><td>01111111</td><td>Goal!Goal!Goal!</td></tr>
+        <tr><td>128</td><td>10000000</td><td>Street Hoop</td></tr>
+        <tr><td>129</td><td>10000001</td><td>Neo Turf Masters</td></tr>
+        <tr><td>130</td><td>10000010</td><td>Baseball Stars 2</td></tr>
+        <tr><td>131</td><td>10000011</td><td>League Bowling</td></tr>
+        <tr><td>132</td><td>10000100</td><td>Bang Bead</td></tr>
+        <tr><td>133</td><td>10000101</td><td>Super Dodge Ball</td></tr>
+        <tr><td>134</td><td>10000110</td><td>Power Spikes II</td></tr>
+        <tr><td>135</td><td>10000111</td><td>Trash Rally</td></tr>
+        <tr><td>136</td><td>10001000</td><td>Over Top</td></tr>
+        <tr><td>137</td><td>10001001</td><td>NeoDriftOut</td></tr>
+        <tr><td>138</td><td>10001010</td><td>Neo Mr.Do!</td></tr>
+    </table>
+
+    <h2>Games That Work Better on 138-in-1 vs 161-in-1</h2>
+    <p>Some games have issues on the 161-in-1 but work correctly on the 138-in-1:</p>
+    <ul>
+        <li><strong>Samurai Shodown II:</strong> 161 version has missing instruments in music and crackling in stage select music. Works fine on 138.</li>
+        <li><strong>Garou: Mark of the Wolves:</strong> 161 has beta version with messed up ending text, different move timing, and Kim Jae Hoon's TOP move crashes. 138 has final version and works correctly.</li>
+        <li><strong>Aero Fighters 3:</strong> 161 is unplayable (bullets freeze, unkillable bosses). Works fine on 138.</li>
+        <li><strong>Last Blade 2:</strong> 161 can spontaneously reset. Works correctly on 138.</li>
+    </ul>
+
+    <h2>Notes</h2>
+    <ul>
+        <li>The 138-in-1 and 161-in-1 together provide the most complete Neo Geo game library available on multicarts.</li>
+        <li>This mod was developed by forum member Fandangos with assistance from l_oliveira.</li>
+        <li>The binary codes were manually tested and verified by Fandangos.</li>
+        <li>Vigormortis confirmed the SPDT switch requirement and verified all codes work correctly.</li>
+    </ul>
+
+    <hr>
+    <p><em>Document compiled from Neo-Geo Forums thread. Original thread contributors: Fandangos, Xian Xi, Vigormortis, and others.</em></p>
+</body>
+</html>
+
