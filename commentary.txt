@@ -1,0 +1,1 @@
+rgb to scart lead that will fit in the supergun, but we don't have connectors to fit on the gbs. gbs doesn't take scart connection.
