@@ -188,6 +188,7 @@ If you prefer not to solder the 8-pin connector directly, you can:
 - Neo Geo MVS documentation and dipswitch settings
 - GBS 8200 user manual for proper RGB input configuration
 - Sigma Raijin supergun wiring diagrams
+- **Cabinet Build Plans:** See `Cabinet_Build_Plans.md` for resources and plans for building a Neo Geo-style tabletop cabinet to house the 25.5" monitor
 
 ### Finding Sigma Raijin Supergun Documentation
 
