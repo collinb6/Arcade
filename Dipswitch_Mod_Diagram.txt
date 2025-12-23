@@ -1,0 +1,152 @@
+================================================================================
+138-in-1 MULTICART DIPSWITCH MOD WIRING DIAGRAM
+================================================================================
+
+SUB-PCB CONNECTOR (on cartridge)
+--------------------------------
+    [Sub-PCB Connector]
+    |
+    |  Wire Colors:
+    |  White  = Ground (GND)
+    |  Red    = Voltage (+5V)
+    |  Green  = Signal 1
+    |  Yellow = Signal 2
+    |  Brown  = Signal 3
+    |  Blue   = Signal 4
+    |  Orange = Signal 5
+    |  Black  = Signal 6
+    |  Grey   = Signal 7
+    |  Purple = Signal 8
+
+
+DIPSWITCH MOD SETUP
+-------------------
+
+                    +5V (Red Wire)
+                         |
+                         |
+    ┌────────────────────┼────────────────────┐
+    │                    │                    │
+    │              [SPDT SWITCHES]            │
+    │                    │                    │
+    │  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐  ┌───┐
+    │  │ 1 │  │ 2 │  │ 3 │  │ 4 │  │ 5 │  │ 6 │  │ 7 │  │ 8 │
+    │  └─┬─┘  └─┬─┘  └─┬─┘  └─┬─┘  └─┬─┘  └─┬─┘  └─┬─┘  └─┬─┘
+    │    │      │      │      │      │      │      │      │
+    │    │      │      │      │      │      │      │      │
+    │  Grn    Yel    Brn    Blu    Org    Blk    Gry    Pur
+    │  (1)    (2)    (3)    (4)    (5)    (6)    (7)    (8)
+    │    │      │      │      │      │      │      │      │
+    │    └──────┴──────┴──────┴──────┴──────┴──────┴──────┘
+    │                    │
+    │              GND (White Wire)
+    │                    │
+    └────────────────────┼────────────────────┘
+                         │
+                    Ground
+
+
+DETAILED SPDT SWITCH CONNECTION (Example: Switch 1)
+-----------------------------------------------------
+
+                    +5V (Red)
+                      |
+                      |
+         ┌────────────┼────────────┐
+         │            │            │
+         │      [SPDT Switch 1]    │
+         │            │            │
+         │      ┌─────┴─────┐      │
+         │      │           │      │
+         │    ON (0)    OFF (1)    │
+         │      │           │      │
+         │      │           │      │
+    Signal 1  +5V        GND       │
+    (Green)    │           │        │
+         │     │           │       │
+         └─────┴───────────┴───────┘
+                      │
+                   GND (White)
+
+
+ALL 8 SWITCHES WIRED THE SAME WAY:
+-----------------------------------
+
+Each SPDT switch has 3 terminals:
+  - Terminal 1: Connected to Signal Wire (Green/Yellow/Brown/etc.)
+  - Terminal 2: Connected to +5V (Red wire) - This is the ON position (0)
+  - Terminal 3: Connected to GND (White wire) - This is the OFF position (1)
+
+When switch is ON (0):  Signal wire → +5V
+When switch is OFF (1): Signal wire → GND
+
+
+WIRING SUMMARY TABLE
+--------------------
+
+Signal Wire    Switch #    ON Position (0)    OFF Position (1)
+-----------    --------    ----------------    -----------------
+Green          1           Connect to +5V      Connect to GND
+Yellow         2           Connect to +5V      Connect to GND
+Brown          3           Connect to +5V      Connect to GND
+Blue           4           Connect to +5V      Connect to GND
+Orange         5           Connect to +5V      Connect to GND
+Black          6           Connect to +5V      Connect to GND
+Grey           7           Connect to +5V      Connect to GND
+Purple         8           Connect to +5V      Connect to GND
+
+Common Connections:
+  - Red wire (+5V): Connect to Terminal 2 of ALL switches
+  - White wire (GND): Connect to Terminal 3 of ALL switches
+
+
+IMPORTANT NOTES:
+----------------
+
+1. MUST USE SPDT SWITCHES - Do NOT use simple ON/OFF switches!
+   The cartridge's multiplexer chip requires signals to be either
+   +5V or GND, never floating (unconnected).
+
+2. Switch Logic:
+   - ON position = 0 (binary) = Connect signal to +5V
+   - OFF position = 1 (binary) = Connect signal to GND
+
+3. Example: To select game #5 (KOF2002) with binary code 00000101:
+   Switch 1: ON  (0) → +5V
+   Switch 2: OFF (1) → GND
+   Switch 3: OFF (1) → GND
+   Switch 4: OFF (1) → GND
+   Switch 5: OFF (1) → GND
+   Switch 6: ON  (0) → +5V
+   Switch 7: OFF (1) → GND
+   Switch 8: ON  (0) → +5V
+
+4. The switches are read from right to left (LSB to MSB):
+   Switch 1 = LSB (Least Significant Bit)
+   Switch 8 = MSB (Most Significant Bit)
+
+
+PHYSICAL LAYOUT SUGGESTION
+---------------------------
+
+You can mount the 8 SPDT switches on a small project box or PCB:
+
+    [Project Box or PCB]
+    
+    ┌─────────────────────────────────────┐
+    │  [1] [2] [3] [4] [5] [6] [7] [8]   │  ← SPDT Switches
+    │   │   │   │   │   │   │   │   │     │
+    │   └───┴───┴───┴───┴───┴───┴───┴───┘
+    │        │                    │
+    │     +5V (Red)          GND (White)
+    │        │                    │
+    └────────┼────────────────────┼────────┘
+             │                    │
+        [To Cartridge]      [To Cartridge]
+        Sub-PCB Connector   Sub-PCB Connector
+
+
+================================================================================
+END OF DIAGRAM
+================================================================================
+

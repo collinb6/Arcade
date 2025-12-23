@@ -32,11 +32,23 @@ This project involves setting up a Neo Geo Multi Video System (MVS) arcade board
    - Multi-game cartridge containing 138 Neo Geo games
    - Requires dipswitch modification for proper operation
 
+5. **NEC MultiSync LCD2690WUXi Monitor**
+   - 25.5" professional LCD monitor with H-IPS panel
+   - **Native Resolution:** 1920x1200 (16:10 aspect ratio)
+   - **Inputs:** DVI-I, DVI-D, and VGA
+   - Built-in resolution scaler with customizable screen expansion and aspect ratio options
+   - Professional features: ColorComp for backlight uniformity, hardware gamma correction LUT
+   - Fast response time suitable for gaming
+   - Standard matte anti-glare coating
+   - **Reference:** [NEC LCD2690WUXi Review](http://xtknight.50webs.com/lcd26/)
+
 ## Connection Setup
 
 ### Video Connection Chain
 
-**Setup:** Sigma Raijin (8-pin RGB output) → GBS 8200 (RGB to VGA converter) → Monitor (VGA input)
+**Setup:** Sigma Raijin (8-pin RGB output) → GBS 8200 (RGB to VGA converter) → NEC LCD2690WUXi (VGA input)
+
+**Monitor:** NEC MultiSync LCD2690WUXi (25.5", 1920x1200 native resolution)
 
 ### Sigma Raijin 8-Pin RGB Connector Pinout
 
@@ -112,7 +124,9 @@ If you prefer not to solder the 8-pin connector directly, you can:
    - Ensure GND is properly connected
 
 2. **GBS-8200 to Monitor:**
-   - Connect the GBS-8200's VGA OUT (P4) to your monitor's VGA input using a standard VGA cable
+   - Connect the GBS-8200's VGA OUT (P4) to the NEC LCD2690WUXi's VGA input using a standard VGA cable
+   - The monitor's built-in scaler will handle resolution conversion from the GBS-8200's output
+   - Use the monitor's OSD to adjust aspect ratio and screen expansion as needed
 
 3. **Power the GBS-8200:**
    - Connect a 5V DC power supply to the GBS-8200's power input (P7 or P9)

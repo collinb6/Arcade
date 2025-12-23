@@ -1,0 +1,251 @@
+{\rtf1\ansi\deff0 {\fonttbl {\f0 Times New Roman;} {\f1 Courier New;}}
+{\colortbl;\red0\green0\blue0;\red44\green62\blue80;\red52\green73\blue94;\red255\green193\blue7;\red12\green84\blue96;}
+\paperw11900\paperh16840\margl1440\margr1440\margt1440\margb1440
+
+{\f0\fs28\b\cf2 138-in-1 Multicart Dipswitch Mod Summary\par}
+\par
+{\b Source:} Neo-Geo Forums - Tech Support\line
+{\b Thread:} "The Super 138 in 1 without the sub-pcb: using a dipswitch. Game list with binary code."\line
+{\b Date:} June 2012 - December 2013\par
+\par
+
+{\fs24\b\cf2 Overview\par}
+\par
+The 138-in-1 multicart originally requires a sub-PCB to function, which handles the game selection menu. This modification allows the cartridge to be used without the sub-PCB by using a dipswitch to manually select games via binary codes.\par
+\par
+{\b Key Advantage:} The 138-in-1 contains 22 games that are NOT available on the 161-in-1 multicart, making it a valuable companion cartridge.\par
+\par
+
+{\fs24\b\cf2 Games Exclusive to 138-in-1 (Not on 161-in-1)\par}
+\par
+\bullet Art of Fighting 3\par
+\bullet Cyber-Lip\par
+\bullet Ghost Pilots\par
+\bullet Ghostlop\par
+\bullet Goal! Goal! Goal!\par
+\bullet Kabuki Klash\par
+\bullet League Bowling\par
+\bullet Metal Slug 5\par
+\bullet Nam-1975\par
+\bullet Ninja Combat\par
+\bullet Ninja Master's\par
+\bullet Pop'n Bounce\par
+\bullet Power Spikes II\par
+\bullet Puzzled Joy Joy Kid\par
+\bullet Sengoku 2\par
+\bullet Shock Troopers\par
+\bullet Super Sidekicks\par
+\bullet Tecmo World 96\par
+\bullet Twinkle Star Sprites\par
+\bullet Waku Waku 7\par
+\bullet World Heroes Jet\par
+\bullet World Heroes Perfect\par
+\par
+
+{\fs24\b\cf2 Important: Dipswitch Logic\par}
+\par
+{\b\cf4 CRITICAL:} In the dipswitch, {\b ON = 0} and {\b OFF = 1}. This is the opposite of what you might expect!\par
+\par
+
+{\fs24\b\cf2 Wiring Information\par}
+\par
+The wires from the sub-PCB connector should be connected as follows (numbered to match selection codes):\par
+\par
+{\trowd\trgaph108\trleft-108
+\cellx2000\cellx4000\cellx6000
+\intbl\b Wire Color\cell\b Function\cell\b Dipswitch Position\cell\row
+\intbl White\cell Ground\cell Common\cell\row
+\intbl Red\cell Voltage (+5V)\cell Common\cell\row
+\intbl Green\cell Signal 1\cell Position 1\cell\row
+\intbl Yellow\cell Signal 2\cell Position 2\cell\row
+\intbl Brown\cell Signal 3\cell Position 3\cell\row
+\intbl Blue\cell Signal 4\cell Position 4\cell\row
+\intbl Orange\cell Signal 5\cell Position 5\cell\row
+\intbl Black\cell Signal 6\cell Position 6\cell\row
+\intbl Grey\cell Signal 7\cell Position 7\cell\row
+\intbl Purple\cell Signal 8\cell Position 8\cell\row
+}\par
+\par
+
+{\fs24\b\cf2 Critical Wiring Requirement: SPDT Switches\par}
+\par
+{\b\cf4 IMPORTANT:} Do NOT use simple ON/OFF switches! The multiplexer chip in the cartridge does NOT like floating inputs and will cause graphical errors and crashes.\par
+\par
+{\b Solution:} Use {\b SPDT (Single Pole Double Throw) switches:}\par
+\par
+\bullet {\b ON position:} Connects signal line to Voltage (+5V)\par
+\bullet {\b OFF position:} Connects signal line to Ground (NOT left floating)\par
+\par
+This ensures that each signal line is always connected to either voltage or ground, never left floating.\par
+\par
+
+{\fs24\b\cf2 Complete Game List with Binary Codes\par}
+\par
+The following table contains all 139 games (0-138) with their binary selection codes. Remember: {\f1 0 = ON} and {\f1 1 = OFF}.\par
+\par
+{\trowd\trgaph108\trleft-108
+\cellx1000\cellx2500\cellx6000
+\intbl\b #\cell\b Binary Code\cell\b Game Name\cell\row
+\intbl 0\cell 00000000\cell KOF2002 Magic II\cell\row
+\intbl 1\cell 00000001\cell KOF97\cell\row
+\intbl 2\cell 00000010\cell KOF98\cell\row
+\intbl 3\cell 00000011\cell KOF99\cell\row
+\intbl 4\cell 00000100\cell KOF2001\cell\row
+\intbl 5\cell 00000101\cell KOF2002\cell\row
+\intbl 6\cell 00000110\cell KOF2003\cell\row
+\intbl 7\cell 00000111\cell CTHD2003\cell\row
+\intbl 8\cell 00001000\cell KOF2004SE\cell\row
+\intbl 9\cell 00001001\cell KOF2005 Unique II\cell\row
+\intbl 10\cell 00001010\cell King of Gladiator\cell\row
+\intbl 11\cell 00001011\cell KOF2002 Super\cell\row
+\intbl 12\cell 00001100\cell KOF2005 Unique\cell\row
+\intbl 13\cell 00001101\cell SVC Chaos Plus\cell\row
+\intbl 14\cell 00001110\cell Mark of the Wolves\cell\row
+\intbl 15\cell 00001111\cell The Last Blade\cell\row
+\intbl 16\cell 00010000\cell The Last Blade 2\cell\row
+\intbl 17\cell 00010001\cell Samurai V Special\cell\row
+\intbl 18\cell 00010010\cell Takon Matrimelee\cell\row
+\intbl 19\cell 00010011\cell Rage of Dragons\cell\row
+\intbl 20\cell 00010100\cell Double Dragon Plus\cell\row
+\intbl 21\cell 00010101\cell KOF94\cell\row
+\intbl 22\cell 00010110\cell KOF95\cell\row
+\intbl 23\cell 00010111\cell KOF96\cell\row
+\intbl 24\cell 00011000\cell KOF97 Plus\cell\row
+\intbl 25\cell 00011001\cell KOF98 Ultimate Match\cell\row
+\intbl 26\cell 00011010\cell KOF99+\cell\row
+\intbl 27\cell 00011011\cell KOF2001 Plus\cell\row
+\intbl 28\cell 00011100\cell KOF2002 Magic\cell\row
+\intbl 29\cell 00011101\cell CTH2003 Super Plus\cell\row
+\intbl 30\cell 00011110\cell KOF 2004 SE Plus\cell\row
+\intbl 31\cell 00011111\cell KOF2005\cell\row
+\intbl 32\cell 00100000\cell Mark of the Wolves+\cell\row
+\intbl 33\cell 00100001\cell Rage of Dragons Plus\cell\row
+\intbl 34\cell 00100010\cell The Last Blade 2+\cell\row
+\intbl 35\cell 00100011\cell Q Double Dragon\cell\row
+\intbl 36\cell 00100100\cell Breakers Revenge\cell\row
+\intbl 37\cell 00100101\cell Waku Waku 7\cell\row
+\intbl 38\cell 00100110\cell Kabuki Klash\cell\row
+\intbl 39\cell 00100111\cell Karnodv's Revenge\cell\row
+\intbl 40\cell 00101000\cell Ninja Master's\cell\row
+\intbl 41\cell 00101001\cell Samurai Shodown 2\cell\row
+\intbl 42\cell 00101010\cell Samurai Shodown 3\cell\row
+\intbl 43\cell 00101011\cell Samurai Shodown 4\cell\row
+\intbl 44\cell 00101100\cell World Heroes 2\cell\row
+\intbl 45\cell 00101101\cell World Heroes Perfect\cell\row
+\intbl 46\cell 00101110\cell World Heroes Jet\cell\row
+\intbl 47\cell 00101111\cell 3 Count Bout\cell\row
+\intbl 48\cell 00110000\cell Breakers\cell\row
+\intbl 49\cell 00110001\cell Double Dragon\cell\row
+\intbl 50\cell 00110010\cell Kabuki Klash\cell\row
+\intbl 51\cell 00110011\cell Art of Fighting 2\cell\row
+\intbl 52\cell 00110100\cell Art of Fighting 3\cell\row
+\intbl 53\cell 00110101\cell Samurai Shodown 2+\cell\row
+\intbl 54\cell 00110110\cell Samurai Shodown 3+\cell\row
+\intbl 55\cell 00110111\cell Samurai Shodown 4+\cell\row
+\intbl 56\cell 00111000\cell KOF95+\cell\row
+\intbl 57\cell 00111001\cell KOF96+\cell\row
+\intbl 58\cell 00111010\cell KOF97 Remix\cell\row
+\intbl 59\cell 00111011\cell KOF2005 Extra Plus\cell\row
+\intbl 60\cell 00111100\cell SNK VS Capcom Remix\cell\row
+\intbl 61\cell 00111101\cell Metal Slug\cell\row
+\intbl 62\cell 00111110\cell Metal Slug 2\cell\row
+\intbl 63\cell 00111111\cell Metal Slug 3\cell\row
+\intbl 64\cell 01000000\cell Metal Slug 4\cell\row
+\intbl 65\cell 01000001\cell Metal Slug 5\cell\row
+\intbl 66\cell 01000010\cell Metal Slug 6\cell\row
+\intbl 67\cell 01000011\cell Shock Troopers\cell\row
+\intbl 68\cell 01000100\cell Shock Troopers 2\cell\row
+\intbl 69\cell 01000101\cell Lansquenet 2004\cell\row
+\intbl 70\cell 01000110\cell Nan-1975\cell\row
+\intbl 71\cell 01000111\cell Spin Master\cell\row
+\intbl 72\cell 01001000\cell Blue's Journey\cell\row
+\intbl 73\cell 01001001\cell Ganryu\cell\row
+\intbl 74\cell 01001010\cell Eight Man\cell\row
+\intbl 75\cell 01001011\cell Ninja Commando\cell\row
+\intbl 76\cell 01001100\cell Robo Army\cell\row
+\intbl 77\cell 01001101\cell Mutation Nation\cell\row
+\intbl 78\cell 01001110\cell Ninja Combat\cell\row
+\intbl 79\cell 01001111\cell Cyber-Lip\cell\row
+\intbl 80\cell 01010000\cell Spin-Master+\cell\row
+\intbl 81\cell 01010001\cell Sengoku3+\cell\row
+\intbl 82\cell 01010010\cell Top Hunter\cell\row
+\intbl 83\cell 01010011\cell Metal Slug+\cell\row
+\intbl 84\cell 01010100\cell Metal Slug 2+\cell\row
+\intbl 85\cell 01010101\cell Metal Slug 3+\cell\row
+\intbl 86\cell 01010110\cell Metal Slug 4 Plus\cell\row
+\intbl 87\cell 01010111\cell Metal Slug 5 Plus\cell\row
+\intbl 88\cell 01011000\cell Metal Slug 6 Plus\cell\row
+\intbl 89\cell 01011001\cell Neo Bomber Man\cell\row
+\intbl 90\cell 01011010\cell Zupapa\cell\row
+\intbl 91\cell 01011011\cell Nightmare\cell\row
+\intbl 92\cell 01011100\cell Sengoku\cell\row
+\intbl 93\cell 01011101\cell Sengoku 2\cell\row
+\intbl 94\cell 01011110\cell Sengoku 3\cell\row
+\intbl 95\cell 01011111\cell Burning Fight\cell\row
+\intbl 96\cell 01100000\cell Strikers 1945 Plus+\cell\row
+\intbl 97\cell 01100001\cell Twinkle Stars Sprites\cell\row
+\intbl 98\cell 01100010\cell Viewpoint\cell\row
+\intbl 99\cell 01100011\cell Ghost Pilots\cell\row
+\intbl 100\cell 01100100\cell Strikers 1945 Plus\cell\row
+\intbl 101\cell 01100101\cell Prehistoric Isle 2\cell\row
+\intbl 102\cell 01100110\cell Blazing Star\cell\row
+\intbl 103\cell 01100111\cell Alpha Mission II\cell\row
+\intbl 104\cell 01101000\cell Last Resort\cell\row
+\intbl 105\cell 01101001\cell Andro Dunos\cell\row
+\intbl 106\cell 01101010\cell Captain Tomaday\cell\row
+\intbl 107\cell 01101011\cell Aero Fighters 2\cell\row
+\intbl 108\cell 01101100\cell Aero Fighters 3\cell\row
+\intbl 109\cell 01101101\cell Zed Blade\cell\row
+\intbl 110\cell 01101110\cell Puzzled Joyjoy Kid\cell\row
+\intbl 111\cell 01101111\cell Puzzle Bobble\cell\row
+\intbl 112\cell 01110000\cell Puzzle Bobble 2\cell\row
+\intbl 113\cell 01110001\cell Puzzle de Pon!\cell\row
+\intbl 114\cell 01110010\cell Puzzle de Pon!+\cell\row
+\intbl 115\cell 01110011\cell Magical Drop II\cell\row
+\intbl 116\cell 01110100\cell Magical Drop III\cell\row
+\intbl 117\cell 01110101\cell Pop'n Bounce\cell\row
+\intbl 118\cell 01110110\cell Panic Bomber\cell\row
+\intbl 119\cell 01110111\cell Money Puzzle Ex\cell\row
+\intbl 120\cell 01111000\cell Ghostlop\cell\row
+\intbl 121\cell 01111001\cell Super Sidekicks\cell\row
+\intbl 122\cell 01111010\cell Super Sidekicks 2\cell\row
+\intbl 123\cell 01111011\cell Super Sidekicks 3\cell\row
+\intbl 124\cell 01111100\cell The Ultimate 11\cell\row
+\intbl 125\cell 01111101\cell NeoGeo Cup'98\cell\row
+\intbl 126\cell 01111110\cell Tecmo World 96\cell\row
+\intbl 127\cell 01111111\cell Goal!Goal!Goal!\cell\row
+\intbl 128\cell 10000000\cell Street Hoop\cell\row
+\intbl 129\cell 10000001\cell Neo Turf Masters\cell\row
+\intbl 130\cell 10000010\cell Baseball Stars 2\cell\row
+\intbl 131\cell 10000011\cell League Bowling\cell\row
+\intbl 132\cell 10000100\cell Bang Bead\cell\row
+\intbl 133\cell 10000101\cell Super Dodge Ball\cell\row
+\intbl 134\cell 10000110\cell Power Spikes II\cell\row
+\intbl 135\cell 10000111\cell Trash Rally\cell\row
+\intbl 136\cell 10001000\cell Over Top\cell\row
+\intbl 137\cell 10001001\cell NeoDriftOut\cell\row
+\intbl 138\cell 10001010\cell Neo Mr.Do!\cell\row
+}\par
+\par
+
+{\fs24\b\cf2 Games That Work Better on 138-in-1 vs 161-in-1\par}
+\par
+Some games have issues on the 161-in-1 but work correctly on the 138-in-1:\par
+\par
+\bullet {\b Samurai Shodown II:} 161 version has missing instruments in music and crackling in stage select music. Works fine on 138.\par
+\bullet {\b Garou: Mark of the Wolves:} 161 has beta version with messed up ending text, different move timing, and Kim Jae Hoon's TOP move crashes. 138 has final version and works correctly.\par
+\bullet {\b Aero Fighters 3:} 161 is unplayable (bullets freeze, unkillable bosses). Works fine on 138.\par
+\bullet {\b Last Blade 2:} 161 can spontaneously reset. Works correctly on 138.\par
+\par
+
+{\fs24\b\cf2 Notes\par}
+\par
+\bullet The 138-in-1 and 161-in-1 together provide the most complete Neo Geo game library available on multicarts.\par
+\bullet This mod was developed by forum member Fandangos with assistance from l_oliveira.\par
+\bullet The binary codes were manually tested and verified by Fandangos.\par
+\bullet Vigormortis confirmed the SPDT switch requirement and verified all codes work correctly.\par
+\par
+\par
+{\i Document compiled from Neo-Geo Forums thread. Original thread contributors: Fandangos, Xian Xi, Vigormortis, and others.\par}
+}
+
